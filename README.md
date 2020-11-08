@@ -1,7 +1,9 @@
 # Java实验
 对目录中 Java 源程序文件进行统计，统计内容包括：(1) 目录中每个源程序 文件的总行数和空白行数，文件的字节数；(2) 目录中所有源程序文件合计总行数、合计空 白行数、合计文件的字节数。同时还需要将统计分析的结果保存在根目录的result文件夹中， 方便后续的读取。
 # 代码说明
-# 1.读入需要统计的目录。
+## 1.读入需要统计的目录。
+
+```java
 public  static String getPathName()//读入要统计的目录并判断输入目录是否正确
     {
         System.out.println("请输入目录路径");
@@ -24,13 +26,15 @@ public  static String getPathName()//读入要统计的目录并判断输入目�
         fileList=new ArrayList<>();
         return pathName;
     }
-    
-# 2.查找目录下所有.java文件并记入fileList里
+```
+## 2.查找目录下所有.java文件并记入fileList里
+```Java
 public static void searchFile()//找.java后缀文件
     {
         File[] files=root.listFiles();//获取root下的文件列表
 
-        for (File file : files) {
+        for (File file : files) 
+        {
             if (file.isDirectory())//如果某文件是目录的话
             {
                 root = file;
@@ -41,7 +45,9 @@ public static void searchFile()//找.java后缀文件
             }
         }
     }
- # 3.计数并输出结果到result.txt
+```
+ ## 3.计数并输出结果到result.txt
+```Java
  public static void countcount(String pathName)//数数
     {
         double rows=0;//总行数
@@ -59,7 +65,6 @@ public static void searchFile()//找.java后缀文件
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         for (File file:fileList)
         {
             try
@@ -86,5 +91,5 @@ public static void searchFile()//找.java后缀文件
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+```
